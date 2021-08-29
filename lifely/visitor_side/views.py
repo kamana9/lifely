@@ -26,3 +26,4 @@ def about_us(request):
 
 def blog(request):
     return render(request, "visitor_side/blog.html")
+

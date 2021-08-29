@@ -20,11 +20,13 @@ Dashboard
                     {% csrf_token %}
                     <div class="form-control my-2">
                         <label for="title" class="leading-7 font-medium text-m text-blue-500">Title</label>
+                        <input type="text" id="title" name="title" class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
                         {{form.title}}
                         {{form.title.errors}}
                     </div>
                     <div class="form-control my-2">
                         <label for="description" class="leading-7 font-medium text-m text-blue-500">Description</label>
+                       <input type="text" id="description"  name="description" class="w-full bg-white rounded border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"/>
                         {{form.description}}
                         {{form.description.errors}}
                     </div>
@@ -41,9 +43,9 @@ Dashboard
                         <li class='flex p-5 my-5 bg-gray-200 justify-between'>
                             <span>{{todo.title}}</span>
                             <span class="icons flex">
-                                <img src="{% static 'user_side/images/eye.png' %}" alt="Preview">
-                                <img src="{% static 'user_side/images/edit.png' %}" alt="Edit">
-                                <a class="delete-link" href="{% url 'user-todo-delete' todo.id %}">
+                                <a href="{%url 'user_side:tododetail' todo.id%}"><img src="{% static 'user_side/images/eye.png' %}" alt="Preview"></a>
+                                <a href="{%url 'user_side:todoupdate' todo.id%}"><img src="{% static 'user_side/images/edit.png' %}" alt="Edit"></a>
+                                <a class="delete-link" href="{% url 'user_side:user-todo-delete' todo.id %}">
                                     <img src="{% static 'user_side/images/trash.png' %}" alt="Trash">
                                 </a>
                             </span>
